@@ -66,65 +66,6 @@ map! <C-F> <Right>
 map! <C-B> <Left>
 map! <C-D> <Delete>
 
-" Gnu Screen like key map at MiniBufExpl
-" let mapleader = "<C-F>"
-" nmap <Space> :MBEbn<CR>
-" nmap <F3> :MBEbp<CR>
-" nmap <F4> :MBEbn<CR>
-"
-" nnoremap <Leader><Space> :MBEbn<CR>
-" nnoremap <Leader>n :MBEbn<CR>
-" nnoremap <Leader><C-n> :MBEbn<CR>
-" nnoremap <Leader>p :MBEbp<CR>
-" nnoremap <Leader><C-p> :MBEbp<CR>
-" nnoremap <Leader>c :new<CR>
-" nnoremap <Leader><C-c> :new<CR>
-" nnoremap <Leader>k :bd<CR>
-" nnoremap <Leader><C-k> :bd<CR>
-" nnoremap <Leader>s :IncBufSwitch<CR>
-" nnoremap <Leader><C-s> :IncBufSwitch<CR>
-" nnoremap <Leader><TAB> :wincmd w<CR>
-" nnoremap <Leader>w :ls<CR>
-" nnoremap <Leader><C-w> :ls<CR>
-" nnoremap <Leader>a :e #<CR>
-" nnoremap <Leader><C-a> :e #<CR>
-" nnoremap <Leader>1 :e #1<CR>
-" nnoremap <Leader>2 :e #2<CR>
-" nnoremap <Leader>3 :e #3<CR>
-" nnoremap <Leader>4 :e #4<CR>
-" nnoremap <Leader>5 :e #5<CR>
-" nnoremap <Leader>6 :e #6<CR>
-" nnoremap <Leader>7 :e #7<CR>
-" nnoremap <Leader>8 :e #8<CR>
-" nnoremap <Leader>9 :e #9<CR>
-
-" nnoremap ,<Space> :MBEbn<CR>
-" nnoremap ,n :MBEbn<CR>
-" nnoremap ,<C-n> :MBEbn<CR>
-" nnoremap ,p :MBEbp<CR>
-" nnoremap ,<C-p> :MBEbp<CR>
-" nnoremap ,c :new<CR>
-" nnoremap ,<C-c> :new<CR>
-" nnoremap ,k :bd<CR>
-" nnoremap ,<C-k> :bd<CR>
-" nnoremap ,s :IncBufSwitch<CR>
-" nnoremap ,<C-s> :IncBufSwitch<CR>
-" nnoremap ,<TAB> :wincmd w<CR>
-" nnoremap ,w :ls<CR>
-" nnoremap ,<C-w> :ls<CR>
-" nnoremap ,a :e #<CR>
-" nnoremap ,, :e #<CR>
-" nnoremap ,<C-a> :e #<CR>
-" nnoremap ,1 :e #1<CR>
-" nnoremap ,2 :e #2<CR>
-" nnoremap ,3 :e #3<CR>
-" nnoremap ,4 :e #4<CR>
-" nnoremap ,5 :e #5<CR>
-" nnoremap ,6 :e #6<CR>
-" nnoremap ,7 :e #7<CR>
-" nnoremap ,8 :e #8<CR>
-" nnoremap ,9 :e #9<CR>
-
 " 文字コード関連
 " from ずんWiki hasfttp://www.kawaz.jp/pukiwiki/?vim#content_1_7
 if &encoding !=# 'utf-8'
@@ -222,12 +163,6 @@ else
   set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %l,%c%V%8P
 endif
 
-" .vim/plugin/minibufexpl.vim
-" let g:miniBufExplMapWindowNavVim=1
-" let g:miniBufExplMapWindowNavArrows=1
-" let g:miniBufExplMapCTabSwitchBufs=1
-" let g:miniBufExplSplitToEdge = 0
-" let g:miniBufExplVSplit = 20   " column width in chars
 autocmd Filetype javascript :set dictionary+=$HOME/.vim/dict/javascript.dict
 autocmd Filetype css :set dictionary+=$HOME/.vim/dict/css.dict
 autocmd Filetype html :set dictionary+=$HOME/.vim/dict/html.dict
@@ -242,11 +177,6 @@ nnoremap ,np :set nopaste<CR>
 nnoremap ,k :bd<CR>
 
 set complete=.,w,b,u,t,k
-
-"autocmd Filetype javascript let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k$HOME/.vim/dict/javascript.dict'
-"autocmd Filetype css let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k$HOME/.vim/dict/css.dict'
-"autocmd Filetype html let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k$HOME/.vim/dict/html.dict'
-"autocmd Filetype php let g:AutoComplPop_CompleteOption = '.,w,b,u,t,i,k$HOME/.vim/dict/php_functions.dict'
 
 ""
 " ShebangExecute
@@ -288,44 +218,12 @@ hi PmenuSbar ctermbg=0 guibg=#333333
 
 let g:acp_behaviorSnipmateLength=1
 let g:acp_behaviorHtmlOmniLength=-1
-"
-" let g:AutoComplPop_BehaviorHtmlOmniLength = -1
-" "<TAB>で補完
-" " Autocompletion using the TAB key
-" " This function determines, wether we are on the start of the line text (then tab indents) or
-" " if we want to try autocompletion
-" function! InsertTabWrapper()
-"     let col = col('.') - 1
-"         if !col || getline('.')[col - 1] !~ '\k'
-"                 return "\<TAB>"
-"         else
-"                 if pumvisible()
-"                         return "\<C-N>"
-"                 else
-"                         return "\<C-N>\<C-P>"
-"                 end
-"         endif
-" endfunction
-" " Remap the tab key to select action with InsertTabWrapper
-" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-" " Remap the ret key to return next line
-" "inoremap <expr> <CR> pumvisible() ? "\<C-Y>\<CR>" : "\<CR>"
-" " }}} Autocompletion using the TAB key
 
 " matchit.vim
 source $VIMRUNTIME/macros/matchit.vim
 
-" .vim/plugin/align.vim
-":let g:Align_xstrlen = 3
-
 " .vim/plugin/surround.vim
 autocmd Filetype php let b:surround_45 = "<?php \r ?>"
-
-" .vim/plugin/yanktmp.vim
-" let g:yanktmp_file = '/home/seltsam/tmp/vimyanktmp'
-" map <silent> sy :call YanktmpYank()<CR>
-" map <silent> sp :call YanktmpPaste_p()<CR>
-" map <silent> sP :call YanktmpPaste_P()<CR>
 
 " .vim/plugin/fuf.vim
 "let g:fuf_modesDisable = [] " enabled MRU mode
@@ -348,38 +246,8 @@ nmap bq :FufQuickfix<CR>
 nmap bl :FufLine<CR>
 nmap gC :FufRenewCache<CR>
 "nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
-let g:fuf_abbrevMap = {
-  \   ":settings" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/settings/**",
-  \   ],
-  \   ":autoloads" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/autoloads/**",
-  \   ],
-  \   ":autoload" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/classes/templateoperator/**",
-  \   ],
-  \   ":search" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/classes/search/**",
-  \   ],
-  \   ":class" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/classes/**",
-  \   ],
-  \   ":overrides" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/design/kgm/override/templates/**",
-  \   ],
-  \   ":tpl" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/design/kgm/templates/**",
-  \   ],
-  \   ":logic" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/design/kgm/templates/logic/**",
-  \   ],
-  \   ":full" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/design/kgm/templates/full/**",
-  \   ],
-  \   ":parts" : [
-  \     "/export/home/kawabata-shohei/www/kgm/htdocs/extension/kgm/design/kgm/templates/parts/**",
-  \   ],
-  \ }
+"let g:fuf_abbrevMap = {
+#  \ }
 
 augroup FufAutoCommand
   autocmd!
@@ -388,48 +256,10 @@ augroup FufAutoCommand
   autocmd FileType fuf :imap <buffer> <C-p> <C-p><C-]>
 augroup END
 
-" delete this section for update fuzzyfinder version 2 to 3
-" .vim/plugin/fuzzyfinder.vim
-" let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'Bookmark':{}, 'Tag':{}, 'TaggedFile':{}}
-" let g:FuzzyFinderOptions.Base.ignore_case = 1
-" let g:FuzzyFinderOptions.Base.abbrev_map  = {
-"       \   '^W' : [
-"       \     '~/app/sbcr-svn/extension/wiro/',
-"       \   ],
-"       \   '^WS' : [
-"       \     '~/app/sbcr-svn-stable/extension/wiro/',
-"       \   ],
-"       \   '^WR' : [
-"       \     '~/app/sbcr-svn-release/extension/wiro/',
-"       \   ],
-"       \   '^MSS' : [
-"       \     '~/app/mss/extension/mitsue_solution_seminar//',
-"       \   ],
-"       \ }
-" let g:FuzzyFinderOptions.MruFile.max_item = 200
-" let g:FuzzyFinderOptions.MruCmd.max_item = 200
-" nmap <silent> bg :FuzzyFinderBuffer<CR>
-" nmap <silent> bG :FuzzyFinderFile <C-r>=expand('%:~:.')[:-1-len(expand('%:~:.:t'))]<CR><CR>
-" nmap <silent> gb :FuzzyFinderFile<CR>
-" nmap <silent> br :FuzzyFinderMruFile<CR>
-" nmap <silent> gB :FuzzyFinderBookmark<CR>
-" nmap <silent> ga :FuzzyFinderAddBookmark<CR>
-" nmap <silent> bt :FuzzyFinderTag!<CR>
-" nmap <silent> bT :FuzzyFinderTaggedFile<CR>
-" nmap <silent> gC :FuzzyFinderRemoveCache<CR>
-" nmap <silent> ge :FuzzyFinderEditInfo<CR>
-" nmap <silent> g] :FuzzyFinderTag! <C-r>=expand('<cword>')<CR><CR>
-
-" .vim/ftplugin/svn.vim
-"  autocmd Filetype svn :filetype plugin on
-
-
 " .vim/plugin/errormaker.vim
 :let loaded_errormarker = 1
 
 " .vim/plugin/yankring.vim
 nnoremap ,y :YRShow<CR>
-
-autocmd FileType ezp :set path+=/home/nozawa-soushi/www/himawari-life/htdocs/extension/hmlife/design/hmlife/templates
 
 colorscheme desert
