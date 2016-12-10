@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/www/admin.smtam.jp/htdocs/extension/devw/design/devw'
+let g:netrw_dirhist_2='/home/www/admin.smtam.jp/htdocs/extension/devw/design'
+let g:netrw_dirhist_3='/home/www/admin.smtam.jp/htdocs/extension/devw/design/devw'
+let g:netrw_dirhist_4='/home/www/admin.smtam.jp/htdocs/extension/devw/design/devw/templates'
+let g:netrw_dirhist_5='/home/www/admin.smtam.jp/htdocs/extension/devw/design/devw/templates/full'
+let g:netrw_dirhist_6='/home/www/admin.smtam.jp/htdocs/extension/devw/design/devw/templates/full/news'
+let g:netrw_dirhist_7='/home/www/admin.smtam.jp/htdocs/st/js/tiny_mce/plugins'
+let g:netrw_dirhist_8='/Users/nozawa_soshi/Documents/workspace/crowdsourcing/repo/regression/src/test/resources/driver/mac'
+let g:netrw_dirhist_9='/Users/nozawa_soshi/gocode/src/misc/ga/logstash'
