@@ -247,7 +247,7 @@ nmap bl :FufLine<CR>
 nmap gC :FufRenewCache<CR>
 "nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
 "let g:fuf_abbrevMap = {
-#  \ }
+"  \ }
 
 augroup FufAutoCommand
   autocmd!
