@@ -1,0 +1,45 @@
+## http://blog.kenjiskywalker.org/blog/2014/06/12/peco/
+function peco-select-history() {
+
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
+
+## http://qiita.com/yungsang/items/e10ca283a1ceeaa845db
+peco-find-cd() {
+  local FILENAME="$1"
+  local MAXDEPTH="${2:-3}"
+  local BASE_DIR="${3:-`pwd`}"
+
+  if [ -z "$FILENAME" ] ; then
+    echo "Usage: peco-find-cd <FILENAME> [<MAXDEPTH> [<BASE_DIR>]]" >&2
+    return 1
+  fi
+
+  local DIR=$(find ${BASE_DIR} -maxdepth ${MAXDEPTH} -name ${FILENAME} | peco | head -n 1)
+
+  if [ -n "$DIR" ] ; then
+    DIR=${DIR%/*}
+    echo "pushd \"$DIR\""
+    pushd "$DIR"
+  fi
+}
+
+peco-go-cd() {
+  peco-find-cd ".git" 5 "$GOPATH"
+}
+
+peco-docker-cd() {
+    peco-find-cd "Dockerfile" "$@"
+}
