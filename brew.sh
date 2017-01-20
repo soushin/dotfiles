@@ -13,4 +13,7 @@ brew install git
 brew install ghq
 brew install peco
 
+brew install maven
+brew install gradle
+
 brew install go
