@@ -9,6 +9,7 @@ fi
 brew install bash
 brew install zsh
 brew install git
+brew install wget
 
 brew install ghq
 brew install peco
