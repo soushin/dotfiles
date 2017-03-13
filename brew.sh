@@ -10,11 +10,18 @@ brew install bash
 brew install zsh
 brew install git
 brew install wget
+brew install direnv
+brew install tree
+brew install mercurial
 
 brew install ghq
 brew install peco
 
 brew install maven
 brew install gradle
+brew install heroku
+
+brew install redis
 
 brew install go
+brew install node

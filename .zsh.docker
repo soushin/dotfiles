@@ -1,0 +1,5 @@
+function docker-cleanup() {
+    for container (`docker ps -f status=exited -q`) docker rm $container
+    for image (`docker images | awk '/^<none>/ { print $3 }'`) docker rmi $image
+}
+zle -N docker-cleanup
