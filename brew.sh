@@ -13,6 +13,7 @@ brew install wget
 brew install direnv
 brew install tree
 brew install mercurial
+brew install jq
 
 brew install ghq
 brew install peco
@@ -20,8 +21,10 @@ brew install peco
 brew install maven
 brew install gradle
 brew install heroku
+brew install tfenv
 
 brew install redis
+brew install protobuf
 
 brew install go
 brew install node
