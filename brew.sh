@@ -29,3 +29,4 @@ brew install protobuf
 brew install go
 brew install node
 brew install goenv
+brew install gradle
