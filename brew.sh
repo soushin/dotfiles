@@ -34,3 +34,4 @@ brew install gradle
 brew install kubernetes-cli
 brew install kubernetes-helm
 brew install stern
+brew install mysql --client-only
