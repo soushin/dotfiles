@@ -32,3 +32,4 @@ brew install goenv
 brew install gradle
 
 brew install kubernetes-cli
+brew install stern
