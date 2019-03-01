@@ -31,6 +31,11 @@ brew install node
 brew install goenv
 brew install gradle
 
+brew install kubernetes-cli
+brew install kubernetes-helm
+brew install stern
+brew install mysql --client-only
+
 brew install neovim
 brew install the_silver_searcher
 
