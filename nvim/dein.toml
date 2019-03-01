@@ -1,0 +1,26 @@
+# denite.nvim
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+# vim-toml
+[[plugins]]
+repo  = 'cespare/vim-toml'
+
+# vim-go
+[[plugins]]
+repo = 'fatih/vim-go'
+
+# The NERDTree
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+# surround.vim
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# Operator replace
+[[plugins]]
+repo = 'kana/vim-operator-user'
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = ['vim-operator-user']

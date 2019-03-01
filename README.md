@@ -1,10 +1,14 @@
 # dotfiles
 
-## how to setup
+## requirements
+
+- git
+- homebrew
+
+## install
+
 ```
-sh brew.sh
-sh setup.sh
-sh goget.sh
-sh python.sh
-source ~/.zshrc
+git clone https://github.com/soushin/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+./install.sh
 ```

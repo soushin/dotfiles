@@ -14,10 +14,9 @@ export GEM_HOME=$HOME/.gem
 export PATH=$GEM_HOME/bin:$PATH
 
 # source
-source ~/.zsh.alias 
+source ~/.zsh.alias
 source ~/.zsh.export
-source ~/.zsh.peco 
-source $GOPATH/src/github.com/nsoushi/describe-ec2/.zsh.describe_ec2
+source ~/.zsh.peco
 source ~/.zsh.workspace
 source ~/.zsh.docker
 

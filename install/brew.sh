@@ -30,3 +30,9 @@ brew install go
 brew install node
 brew install goenv
 brew install gradle
+
+brew install neovim
+brew install the_silver_searcher
+
+brew install pyenv
+brew install python3
