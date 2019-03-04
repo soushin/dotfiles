@@ -1,4 +1,6 @@
 
+alias vim='nvim'
+
 # ls
 alias la="ls -lha"
 alias lf="ls -lhF"

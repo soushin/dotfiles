@@ -9,6 +9,36 @@ repo  = 'cespare/vim-toml'
 # vim-go
 [[plugins]]
 repo = 'fatih/vim-go'
+hook_add = '''
+  let g:go_fmt_command = "goimports"
+  let g:go_def_mapping_enabled = 0
+  let g:go_doc_keywordprg_enabled = 0
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertEnter'
+hook_add = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+build = 'bash install.sh'
+rev = 'next'
+hook_add = '''
+  set hidden
+  let g:LanguageClient_serverCommands = {
+      \ 'go': [
+         " https://github.com/saibing/bingo
+         " go get -u github.com/saibing/bingo
+         \ 'bingo', '--mode', 'stdio', '--logfile', '/tmp/lspserver.log'
+      \ ]
+      \ }
+  let g:LanguageClient_loadSettings = 1
+  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+'''
 
 # The NERDTree
 [[plugins]]
@@ -24,3 +54,7 @@ repo = 'kana/vim-operator-user'
 [[plugins]]
 repo = 'kana/vim-operator-replace'
 depends = ['vim-operator-user']
+
+# tender
+[[plugins]]
+repo = 'jacoborus/tender.vim'

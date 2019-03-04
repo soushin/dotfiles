@@ -1,13 +1,16 @@
 let g:python_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
 
-"editor config-------------------------
+"editor definition------------------------
 
 let mapleader = '\'
 
 set number
+set list
+set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,nbsp:%
 set ignorecase
 set smartcase
+set smartindent
 set wrapscan
 set incsearch
 set inccommand=split
@@ -42,15 +45,15 @@ vnoremap <C-p> 20k
 
 inoremap <silent> jj <ESC>:<C-u>w<CR>
 
-"End editor config-------------------------
+"End editor definition------------------------
 
-"vim-go config----------------------------
+"vim-go definition---------------------------
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 "End vim-go config
 
-"dein scripts-----------------------------
+"dein definition-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
@@ -86,9 +89,9 @@ if dein#check_install()
   call dein#install()
 endif
 
-"End dein scripts-------------------------
+"End dein definition-------------------------
 
-"denite scripts-----------------------------
+"denite definition-----------------------------
 
 let g:python_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
@@ -139,9 +142,9 @@ call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
 
-"End denite scripts-------------------------
+" End denite definition-------------------------
 
-" nerdtree scripts-------------------------
+" nerdtree definition-------------------------
 nnoremap <silent> <C-e> :NERDTreeToggle<CR>
 
 " 表示幅
@@ -169,8 +172,25 @@ let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
 " NERDTreeを同時に閉じる
 autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 
-"End nerdtree scripts-------------------------
+"End nerdtree definition-------------------------
 
-" operator-replace scripts-------------------------
+" operator-replace definition-------------------------
 map _ <Plug>(operator-replace)
-"End operator-replace scripts-------------------------
+"End operator-replace definition-------------------------
+
+" LSP definition-------------------------
+if executable('go-langserver')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'go-langserver',
+        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+endif
+
+nmap <silent> <Leader>d :LspDefinition<CR>
+nmap <silent> <Leader>p :LspHover<CR>
+nmap <silent> <Leader>r :LspReferences<CR>
+nmap <silent> <Leader>i :LspImplementation<CR>
+nmap <silent> <Leader>s :split \| :LspDefinition <CR>
+nmap <silent> <Leader>v :vsplit \| :LspDefinition <CR>
+"End LSP definition-------------------------
