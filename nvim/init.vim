@@ -5,6 +5,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 let mapleader = '\'
 
+colorscheme tender
 set number
 set list
 set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,nbsp:%

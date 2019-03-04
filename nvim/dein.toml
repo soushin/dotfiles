@@ -36,8 +36,19 @@ hook_add = '''
       \ ]
       \ }
   let g:LanguageClient_loadSettings = 1
-  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> <Leader><Leader> :<C-u>Denite contextMenu<CR>
+  nnoremap <silent> K                :<C-u>call LanguageClient_textDocument_hover()<CR>
+  nnoremap <silent> <C-]>            :<C-u>call LanguageClient_textDocument_definition()<CR>
+  nnoremap <silent> <Leader>i        :<C-u>call LanguageClient_textDocument_implementation()<CR>
+  nnoremap <silent> <Leader>R        :<C-u>call LanguageClient_textDocument_rename()<CR>
+  nnoremap <silent> <Leader>s        :<C-u>Denite documentSymbol<CR>
+  nnoremap <silent> <Leader>dr       :<C-u>Denite references<CR>
+  nnoremap <silent> <Leader>a        :<C-u>call LanguageClient_textDocument_codeAction()<CR>
+  nnoremap <silent> gq               :<C-u>call LanguageClient_textDocument_formatting()<CR>
+  vnoremap <silent> gq               :<C-u>call LanguageClient_textDocument_rangeFormatting()<CR>
+  nnoremap <silent> <Leader>h        :<C-u>call LanguageClient_textDocument_documentHighlight()<CR>
+  nnoremap <silent> <Leader>H        :<C-u>call LanguageClient_clearDocumentHighlight()<CR>
+  nnoremap <silent> <Leader>S        :<C-u>Denite workspaceSymbol<CR>
 '''
 
 # The NERDTree
