@@ -145,53 +145,19 @@ call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap'
 
 " End denite definition-------------------------
 
-" nerdtree definition-------------------------
-nnoremap <silent> <C-e> :NERDTreeToggle<CR>
-
-" 表示幅
-let g:NERDTreeWinSize=50
-
-" ブックマークを表示
-let g:NERDTreeShowBookmarks=1
-
-" 親ディレクトリへ移動
-let g:NERDTreeMapUpdir=''
-
-" ファイルの開き方
-let g:NERDTreeMapOpenSplit='<C-j>'
-let g:NERDTreeMapOpenVSplit='<C-l>'
-
-" ファイルを開いたらNERDTreeを閉じる
-let g:NERDTreeQuitOnOpen=1
-
-" 隠しファイルを表示
-let g:NERDTreeShowHidden=1
-
-" 非表示ファイル
-let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
-
-" NERDTreeを同時に閉じる
-autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
-
-"End nerdtree definition-------------------------
-
-" operator-replace definition-------------------------
-map _ <Plug>(operator-replace)
-"End operator-replace definition-------------------------
-
 " LSP definition-------------------------
-if executable('go-langserver')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'go-langserver',
-        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
-        \ 'whitelist': ['go'],
-        \ })
-endif
-
-nmap <silent> <Leader>d :LspDefinition<CR>
-nmap <silent> <Leader>p :LspHover<CR>
-nmap <silent> <Leader>r :LspReferences<CR>
-nmap <silent> <Leader>i :LspImplementation<CR>
-nmap <silent> <Leader>s :split \| :LspDefinition <CR>
-nmap <silent> <Leader>v :vsplit \| :LspDefinition <CR>
+"if executable('go-langserver')
+"    au User lsp_setup call lsp#register_server({
+"        \ 'name': 'go-langserver',
+"        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
+"        \ 'whitelist': ['go'],
+"        \ })
+"endif
+"
+"nmap <silent> <Leader>d :LspDefinition<CR>
+"nmap <silent> <Leader>p :LspHover<CR>
+"nmap <silent> <Leader>r :LspReferences<CR>
+"nmap <silent> <Leader>i :LspImplementation<CR>
+"nmap <silent> <Leader>s :split \| :LspDefinition <CR>
+"nmap <silent> <Leader>v :vsplit \| :LspDefinition <CR>
 "End LSP definition-------------------------
