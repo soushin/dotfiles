@@ -41,3 +41,6 @@ brew install the_silver_searcher
 
 brew install pyenv
 brew install python3
+
+brew install neovim
+brew install goenv

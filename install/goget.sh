@@ -9,3 +9,4 @@ go get -u bitbucket.org/liamstask/goose/cmd/goose
 go get -u github.com/stormcat24/protodep
 
 go get -u github.com/sourcegraph/go-langserver
+go get -u github.com/saibing/bingo

@@ -9,6 +9,6 @@
 
 ```
 git clone https://github.com/soushin/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-./install.sh
+cd ~/dotfiles
+./setup.sh
 ```

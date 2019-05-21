@@ -1,6 +1,7 @@
 autoload -U compinit
 compinit
 
+export PATH=/usr/local/bin:$PATH
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
@@ -15,9 +16,7 @@ export PATH=$GEM_HOME/bin:$PATH
 
 # source
 source ~/.zsh.alias
-source ~/.zsh.export
 source ~/.zsh.peco
-source ~/.zsh.workspace
 source ~/.zsh.docker
 
 # unalias list

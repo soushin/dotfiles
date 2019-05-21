@@ -5,7 +5,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 
 let mapleader = '\'
 
-colorscheme tender
 set number
 set list
 set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,nbsp:%
@@ -76,6 +75,9 @@ if dein#load_state('~/.cache/dein')
   "call dein#add('Shougo/neosnippet.vim')
   "call dein#add('Shougo/neosnippet-snippets')
 
+  "call dein#add('jacoborus/tender.vim')
+  colorscheme tender
+
   " Required:
   call dein#end()
   call dein#save_state()
@@ -90,6 +92,7 @@ if dein#check_install()
   call dein#install()
 endif
 
+colorscheme tender
 "End dein definition-------------------------
 
 "denite definition-----------------------------

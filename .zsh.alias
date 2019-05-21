@@ -1,5 +1,5 @@
 
-alias vim='nvim'
+alias vim='/usr/local/bin/nvim'
 
 # ls
 alias la="ls -lha"

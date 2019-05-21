@@ -13,8 +13,8 @@ done
 [[ ! -d ~/.oh-my-zsh ]] && git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 source ~/.zshrc
 
-#${INSTALL_DIR}brew.sh
-#${INSTALL_DIR}setup.sh
-#${INSTALL_DIR}goget.sh
-#${INSTALL_DIR}python.sh
+. ${INSTALL_DIR}/brew.sh
+. ${INSTALL_DIR}/setup.sh
+. ${INSTALL_DIR}/goget.sh
+. ${INSTALL_DIR}/python.sh
 . ${INSTALL_DIR}/nvim.sh

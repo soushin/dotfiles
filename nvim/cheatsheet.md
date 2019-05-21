@@ -1,6 +1,6 @@
 # Cheet Sheet
 
-## denite
+## language-client
 
 - <Leader><Leader> :<C-u>Denite contextMenu<CR>
 - K                :<C-u>call LanguageClient_textDocument_hover()<CR>
@@ -15,6 +15,8 @@
 - <Leader>h        :<C-u>call LanguageClient_textDocument_documentHighlight()<CR>
 - <Leader>H        :<C-u>call LanguageClient_clearDocumentHighlight()<CR>
 - <Leader>S        :<C-u>Denite workspaceSymbol<CR>
+
+note: if you get error like `Language server is not running for:`, you should do `:LanguageClientStart`
 
 ## vim-go
 
