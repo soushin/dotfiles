@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # dotfiles
-DOT_FILES=( .zshrc .zsh.alias .zsh.peco)
+DOT_FILES=( .zshrc .zsh.alias .zsh.peco .zsh.export)
 BASE_DIR="$HOME"/dotfiles
 INSTALL_DIR="$BASE_DIR"/install
 
