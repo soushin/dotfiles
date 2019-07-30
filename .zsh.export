@@ -2,3 +2,4 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+export GO111MODULE=on

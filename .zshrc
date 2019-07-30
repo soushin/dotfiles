@@ -17,7 +17,6 @@ export PATH=$GEM_HOME/bin:$PATH
 # source
 source ~/.zsh.alias
 source ~/.zsh.peco
-source ~/.zsh.docker
 source ~/.zsh.export
 
 # unalias list
@@ -26,3 +25,7 @@ unalias history
 # goenv
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
+
+# kube-ps1
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1) '$PS1

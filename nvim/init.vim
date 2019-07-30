@@ -1,6 +1,3 @@
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
 "editor definition------------------------
 
 let mapleader = '\'
@@ -51,6 +48,7 @@ inoremap <silent> jj <ESC>:<C-u>w<CR>
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_build_tags = 'integration'
 "End vim-go config
 
 "dein definition-----------------------------
@@ -64,20 +62,12 @@ set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 " Required:
 if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
-
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
 
   " Let dein manage dein
   " Required:
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
-
-  "call dein#add('jacoborus/tender.vim')
-  colorscheme tender
-
+  
   " Required:
   call dein#end()
   call dein#save_state()
@@ -87,18 +77,33 @@ endif
 filetype plugin indent on
 syntax enable
 
+colorscheme tender
+  
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
 endif
 
-colorscheme tender
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>
+                \ denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> d
+                \ denite#do_map('do_action', 'delete')
+    nnoremap <silent><buffer><expr> p
+                \ denite#do_map('do_action', 'preview')
+    nnoremap <silent><buffer><expr> q
+                \ denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i
+                \ denite#do_map('open_filter_buffer')
+    nnoremap <silent><buffer><expr> <Space>
+                \ denite#do_map('toggle_select').'j'
+endfunction
+
+"colorscheme tender
 "End dein definition-------------------------
 
 "denite definition-----------------------------
-
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 nnoremap [denite] <Nop>
 nmap <C-d> [denite]
@@ -119,17 +124,6 @@ nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume -cursor-pos=-1 -immediately
 call denite#custom#option('default', {'mode': 'normal'})
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 
-" ファイル一覧
-noremap [denite] :Denite file_rec -mode=insert
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#var('file_rec', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-      \ ['.git/', '__pycache__/', '*.o', '*.make', '*.min.*'])
-
-" ディレクトリ一覧
-noremap [denite]<C-d> :<C-u>Denite directory_rec<CR>
-noremap [denite]<C-c> :<C-u>Denite directory_rec -default-action=cd<CR>
-
 " 移動
 call denite#custom#map('normal', 'j', '<denite:nop>', 'noremap')
 call denite#custom#map('normal', 'k', '<denite:nop>', 'noremap')
@@ -140,27 +134,10 @@ call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'nor
 call denite#custom#map('normal', '<C-u>', '<denite:move_up_path>', 'noremap')
 call denite#custom#map('insert', '<C-u>', '<denite:move_up_path>', 'noremap')
 
-" ウィンドウを分割して開く
+"" ウィンドウを分割して開く
 call denite#custom#map('normal', '<C-j>', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
 call denite#custom#map('normal', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
 call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
 
 " End denite definition-------------------------
-
-" LSP definition-------------------------
-"if executable('go-langserver')
-"    au User lsp_setup call lsp#register_server({
-"        \ 'name': 'go-langserver',
-"        \ 'cmd': {server_info->['go-langserver', '-mode', 'stdio']},
-"        \ 'whitelist': ['go'],
-"        \ })
-"endif
-"
-"nmap <silent> <Leader>d :LspDefinition<CR>
-"nmap <silent> <Leader>p :LspHover<CR>
-"nmap <silent> <Leader>r :LspReferences<CR>
-"nmap <silent> <Leader>i :LspImplementation<CR>
-"nmap <silent> <Leader>s :split \| :LspDefinition <CR>
-"nmap <silent> <Leader>v :vsplit \| :LspDefinition <CR>
-"End LSP definition-------------------------

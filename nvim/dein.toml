@@ -1,6 +1,62 @@
 # denite.nvim
 [[plugins]]
 repo = 'Shougo/denite.nvim'
+depends = 'cpsm'
+on_cmd = 'Denite'
+hook_add = '''
+    nnoremap <silent> <Space>ft       :<C-u>Denite -start-filter filetype<CR>
+    nnoremap <silent> <Space><Space>  :<C-u>Denite -start-filter file/rec<CR>
+    nnoremap <silent> <Space>P        :<C-u>DeniteProjectDir -start-filter file/rec<CR>
+    nnoremap <silent> <Space>b        :<C-u>DeniteBufferDir -start-filter file/rec<CR>
+    nnoremap <silent> <Space>i<Space> :<C-u>Denite -start-filter file/rec:
+    nnoremap <silent> <Space>/        :<C-u>Denite -start-filter line<CR>
+    nnoremap <silent> <Space>r        :<C-u>Denite grep<CR>
+    nnoremap <silent> <Space>ir       :<C-u>Denite grep:
+    nnoremap <silent> <Space>:        :<C-u>Denite command<CR>
+    nnoremap <silent> <Space>;        :<C-u>Denite command_history<CR>
+    nnoremap <silent> <Space>o        :<C-u>Denite file_mru<CR>
+    nnoremap <silent> <Space>y        :<C-u>Denite neoyank<CR>
+    nnoremap <silent> <Space>p        :<C-u>Denite -start-filter ghq<CR>
+    nnoremap <silent> <Space>n        :<C-u>Denite neosnippet<CR>
+    nnoremap <space>d                 :<C-u>Denite file/rec:$HOME/dotfiles<CR>
+'''
+hook_source = '''
+    " Define mappings
+    " Change file/rec command.
+    call denite#custom#var('file/rec', 'command',
+                \ ['ag', '--follow', '--vimgrep', '--hidden',
+                \ '--ignore-dir', '.git', '--ignore', '\.DS_Store', '--ignore-dir', 'node_modules', '--ignore-dir', 'Alfred.alfredpreferences',
+                \ '-g', ''])
+    " Change matchers.
+    call denite#custom#source(
+                \ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+    call denite#custom#source(
+                \ 'file/rec', 'matchers', ['matcher/cpsm'])
+    " Ag command on grep source
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts',
+                \ ['--vimgrep', '--follow', '--hidden',
+                \ '--ignore-dir', '.git', '--ignore', '\.DS_Store', '--ignore-dir', 'node_modules', '--ignore-dir', 'Alfred.alfredpreferences'
+                \ ])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+'''
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['unite.vim', 'denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_event = 'TextYankPost'
+on_source = ['unite.vim', 'denite.nvim']
+
+[[plugins]]
+repo = 'nixprime/cpsm'
+on_source = ['denite.nvim', 'deoplete.nvim']
+build = 'env PY3=ON ./install.sh'
 
 # vim-toml
 [[plugins]]
@@ -11,8 +67,10 @@ repo  = 'cespare/vim-toml'
 repo = 'fatih/vim-go'
 hook_add = '''
   let g:go_fmt_command = "goimports"
+  let g:go_fmt_options = {'goimports': ' -local github.dena.jp/k2'}
   let g:go_def_mapping_enabled = 0
   let g:go_doc_keywordprg_enabled = 0
+  let g:go_bin_path = $GOPATH.'/bin'
 '''
 
 [[plugins]]
@@ -22,42 +80,9 @@ hook_add = '''
   let g:deoplete#enable_at_startup = 1
 '''
 
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-build = 'bash install.sh'
-rev = 'next'
-hook_add = '''
-  set hidden
-  let g:LanguageClient_serverCommands = {
-      \ 'go': [
-         " https://github.com/saibing/bingo
-         " go get -u github.com/saibing/bingo
-         \ 'bingo', '--mode', 'stdio', '--logfile', '/tmp/lspserver.log'
-      \ ]
-      \ }
-  let g:LanguageClient_loadSettings = 1
-  nnoremap <silent> <Leader><Leader> :<C-u>Denite contextMenu<CR>
-  nnoremap <silent> K                :<C-u>call LanguageClient_textDocument_hover()<CR>
-  nnoremap <silent> <C-]>            :<C-u>call LanguageClient_textDocument_definition()<CR>
-  nnoremap <silent> <Leader>i        :<C-u>call LanguageClient_textDocument_implementation()<CR>
-  nnoremap <silent> <Leader>R        :<C-u>call LanguageClient_textDocument_rename()<CR>
-  nnoremap <silent> <Leader>s        :<C-u>Denite documentSymbol<CR>
-  nnoremap <silent> <Leader>dr       :<C-u>Denite references<CR>
-  nnoremap <silent> <Leader>a        :<C-u>call LanguageClient_textDocument_codeAction()<CR>
-  nnoremap <silent> gq               :<C-u>call LanguageClient_textDocument_formatting()<CR>
-  vnoremap <silent> gq               :<C-u>call LanguageClient_textDocument_rangeFormatting()<CR>
-  nnoremap <silent> <Leader>h        :<C-u>call LanguageClient_textDocument_documentHighlight()<CR>
-  nnoremap <silent> <Leader>H        :<C-u>call LanguageClient_clearDocumentHighlight()<CR>
-  nnoremap <silent> <Leader>S        :<C-u>Denite workspaceSymbol<CR>
-'''
-
 # The NERDTree
 [[plugins]]
 repo = 'scrooloose/nerdtree'
-
-# surround.vim
-[[plugins]]
-repo = 'tpope/vim-surround'
 hook_add = '''
 nnoremap <silent> <C-e> :NERDTreeToggle<CR>
 
@@ -146,4 +171,9 @@ repo = 'tpope/vim-fugitive'
 # vim-airline
 [[plugins]]
 repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+hook_add = 'source ~/.config/nvim/coc-setting.vim'
 
