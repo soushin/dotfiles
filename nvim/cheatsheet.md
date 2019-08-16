@@ -2,19 +2,10 @@
 
 ## language-client
 
-- <Leader><Leader> :<C-u>Denite contextMenu<CR>
-- K                :<C-u>call LanguageClient_textDocument_hover()<CR>
-- <C-]>            :<C-u>call LanguageClient_textDocument_definition()<CR>
-- <Leader>i        :<C-u>call LanguageClient_textDocument_implementation()<CR>
-- <Leader>R        :<C-u>call LanguageClient_textDocument_rename()<CR>
-- <Leader>s        :<C-u>Denite documentSymbol<CR>
-- <Leader>dr       :<C-u>Denite references<CR>
-- <Leader>a        :<C-u>call LanguageClient_textDocument_codeAction()<CR>
-- gq               :<C-u>call LanguageClient_textDocument_formatting()<CR>
-- gq               :<C-u>call LanguageClient_textDocument_rangeFormatting()<CR>
-- <Leader>h        :<C-u>call LanguageClient_textDocument_documentHighlight()<CR>
-- <Leader>H        :<C-u>call LanguageClient_clearDocumentHighlight()<CR>
-- <Leader>S        :<C-u>Denite workspaceSymbol<CR>
+- <silent>gd :definition)
+- <silent>gy :type-definition)
+- <silent>gi :implementation)
+- <silent>gr :references)
 
 note: if you get error like `Language server is not running for:`, you should do `:LanguageClientStart`
 

@@ -18,6 +18,8 @@ export PATH=$GEM_HOME/bin:$PATH
 source ~/.zsh.alias
 source ~/.zsh.peco
 source ~/.zsh.export
+source ~/.zsh.kube
+source ~/.zsh.gcloud
 
 # unalias list
 unalias history

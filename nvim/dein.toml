@@ -14,7 +14,7 @@ hook_add = '''
     nnoremap <silent> <Space>ir       :<C-u>Denite grep:
     nnoremap <silent> <Space>:        :<C-u>Denite command<CR>
     nnoremap <silent> <Space>;        :<C-u>Denite command_history<CR>
-    nnoremap <silent> <Space>o        :<C-u>Denite file_mru<CR>
+    nnoremap <silent> <Space>f        :<C-u>Denite file_mru<CR>
     nnoremap <silent> <Space>y        :<C-u>Denite neoyank<CR>
     nnoremap <silent> <Space>p        :<C-u>Denite -start-filter ghq<CR>
     nnoremap <silent> <Space>n        :<C-u>Denite neosnippet<CR>
@@ -176,4 +176,7 @@ repo = 'vim-airline/vim-airline'
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
 hook_add = 'source ~/.config/nvim/coc-setting.vim'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
 
