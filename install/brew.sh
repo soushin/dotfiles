@@ -14,6 +14,7 @@ brew install direnv
 brew install tree
 brew install mercurial
 brew install jq
+brew install gcc
 
 brew install ghq
 brew install peco
@@ -44,3 +45,5 @@ brew install python3
 
 brew install neovim
 brew install goenv
+
+brew install kube-ps1
