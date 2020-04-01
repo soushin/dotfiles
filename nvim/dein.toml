@@ -14,7 +14,7 @@ hook_add = '''
     nnoremap <silent> <Space>ir       :<C-u>Denite grep:
     nnoremap <silent> <Space>:        :<C-u>Denite command<CR>
     nnoremap <silent> <Space>;        :<C-u>Denite command_history<CR>
-    nnoremap <silent> <Space>f        :<C-u>Denite file_mru<CR>
+    nnoremap <silent> <Space>f        :<C-u>Denite -start-filter file_mru<CR>
     nnoremap <silent> <Space>y        :<C-u>Denite neoyank<CR>
     nnoremap <silent> <Space>p        :<C-u>Denite -start-filter ghq<CR>
     nnoremap <silent> <Space>n        :<C-u>Denite neosnippet<CR>
@@ -61,16 +61,6 @@ build = 'env PY3=ON ./install.sh'
 # vim-toml
 [[plugins]]
 repo  = 'cespare/vim-toml'
-
-# vim-go
-[[plugins]]
-repo = 'fatih/vim-go'
-hook_add = '''
-  let g:go_fmt_command = "goimports"
-  let g:go_def_mapping_enabled = 0
-  let g:go_doc_keywordprg_enabled = 0
-  let g:go_bin_path = $GOPATH.'/bin'
-'''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -175,6 +165,8 @@ repo = 'vim-airline/vim-airline'
 repo = 'neoclide/coc.nvim'
 build = './install.sh nightly'
 hook_add = 'source ~/.config/nvim/coc-setting.vim'
+marged = 0
+rev = 'release'
 
 [[plugins]]
 repo = 'tpope/vim-commentary'

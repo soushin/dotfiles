@@ -31,3 +31,11 @@ eval "$(goenv init -)"
 # kube-ps1
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1) '$PS1
+
+# rbenv
+eval "$(rbenv init -)"
+
+# goenv
+export PATH="$HOME/.goenv/bin:$PATH"
+export GOENV_DISABLE_GOPATH=1
+eval "$(goenv init -)"

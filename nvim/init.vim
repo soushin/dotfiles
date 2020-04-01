@@ -18,10 +18,11 @@ set softtabstop=0
 set expandtab
 set smarttab
 set shiftround
+set clipboard=unnamed
 
-nnoremap <silent> <S-j> :split<CR>
-nnoremap <silent> <S-l> :vsplit<CR>
-nnoremap <Bar> $:let pos = getpos('.')<CR>:join<CR>:call setpos('.', pos)<CR>
+"nnoremap <silent> <S-j> :split<CR>
+"nnoremap <silent> <S-l> :vsplit<CR>
+"nnoremap <Bar> $:let pos = getpos('.')<CR>:join<CR>:call setpos('.', pos)<CR>
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -29,27 +30,20 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " 折り返し行移動
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+"nnoremap j gj
+"nnoremap k gk
+"vnoremap j gj
+"vnoremap k gk
 
 " 20行ずつ移動
-nnoremap <C-n> 20j
-vnoremap <C-n> 20j
-nnoremap <C-p> 20k
-vnoremap <C-p> 20k
+"nnoremap <C-n> 20j
+"vnoremap <C-n> 20j
+"nnoremap <C-p> 20k
+"vnoremap <C-p> 20k
 
-inoremap <silent> jj <ESC>:<C-u>w<CR>
+"inoremap <silent> jj <ESC>:<C-u>w<CR>
 
 "End editor definition------------------------
-
-"vim-go definition---------------------------
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_build_tags = 'integration'
-"End vim-go config
 
 "dein definition-----------------------------
 if &compatible

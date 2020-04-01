@@ -1,4 +1,5 @@
 .idea/
 .vim/.vim
 .vim/.netrwhist
+nvim/.netrwhist
 nvim/colors
