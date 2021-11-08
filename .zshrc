@@ -7,8 +7,11 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 #ZSH_THEME="arrow"
 
-plugins=(git)
+plugins=(git dotenv)
 source $ZSH/oh-my-zsh.sh
+
+# dotenv
+export ZSH_DOTENV_FILE=.env.example
 
 # extension
 export GEM_HOME=$HOME/.gem
@@ -25,8 +28,13 @@ source ~/.zsh.gcloud
 unalias history
 
 # goenv
-export PATH="$HOME/.goenv/bin:$PATH"
+export GOPATH=$HOME/go
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+export GOENV_DISABLE_GOPATH=1
 eval "$(goenv init -)"
+export PATH="$PATH:$GOPATH/bin"
+export GO111MODULE=on
 
 # kube-ps1
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
@@ -34,8 +42,3 @@ PS1='$(kube_ps1) '$PS1
 
 # rbenv
 eval "$(rbenv init -)"
-
-# goenv
-export PATH="$HOME/.goenv/bin:$PATH"
-export GOENV_DISABLE_GOPATH=1
-eval "$(goenv init -)"

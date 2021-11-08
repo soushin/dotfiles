@@ -1,7 +1,21 @@
+let g:rc_dir = expand('~/.nvim/rc')
+function! s:source_rc(rc_file_name)
+    let rc_file = expand(g:rc_dir . '/' . a:rc_file_name)
+    if filereadable(rc_file)
+        execute 'source' rc_file
+    endif
+endfunction
+
 "editor definition------------------------
+
+let g:python_host_prog='~/.pyenv/versions/neovim-2/bin/python'
+let g:python3_host_prog=expand('~/.pyenv/versions/neovim-3/bin/python3')
 
 let mapleader = '\'
 
+call s:source_rc('githubtoken.vim')
+
+set shell=/bin/zsh
 set number
 set list
 set listchars=tab:▸\ ,eol:¬,extends:»,precedes:«,nbsp:%
@@ -20,6 +34,15 @@ set smarttab
 set shiftround
 set clipboard=unnamed
 
+if has("autocmd")
+  "ファイルタイプの検索を有効にする
+  filetype plugin on
+  "ファイルタイプに合わせたインデントを利用
+  filetype indent on
+  "sw=shiftwidth, sts=softtabstop, ts=tabstop, et=expandtabの略
+  autocmd FileType yaml setlocal sw=2 sts=2 ts=2 et
+endif
+
 "nnoremap <silent> <S-j> :split<CR>
 "nnoremap <silent> <S-l> :vsplit<CR>
 "nnoremap <Bar> $:let pos = getpos('.')<CR>:join<CR>:call setpos('.', pos)<CR>
@@ -29,17 +52,20 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+
 " 折り返し行移動
-"nnoremap j gj
-"nnoremap k gk
-"vnoremap j gj
-"vnoremap k gk
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 
 " 20行ずつ移動
-"nnoremap <C-n> 20j
-"vnoremap <C-n> 20j
-"nnoremap <C-p> 20k
-"vnoremap <C-p> 20k
+nnoremap <C-n> 20j
+vnoremap <C-n> 20j
+nnoremap <C-p> 20k
+vnoremap <C-p> 20k
 
 "inoremap <silent> jj <ESC>:<C-u>w<CR>
 
@@ -93,45 +119,3 @@ function! s:denite_my_settings() abort
     nnoremap <silent><buffer><expr> <Space>
                 \ denite#do_map('toggle_select').'j'
 endfunction
-
-"colorscheme tender
-"End dein definition-------------------------
-
-"denite definition-----------------------------
-
-nnoremap [denite] <Nop>
-nmap <C-d> [denite]
-
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-nnoremap <silent> [denite]<C-g> :<C-u>Denite grep -mode=normal<CR>
-nnoremap <silent> [denite]<C-r> :<C-u>Denite -resume<CR>
-nnoremap <silent> [denite]<C-n> :<C-u>Denite -resume -cursor-pos=+1 -immediately<CR>
-nnoremap <silent> [denite]<C-p> :<C-u>Denite -resume -cursor-pos=-1 -immediately<CR>
-
-" ノーマルモードで起動、jjでノーマルへ
-call denite#custom#option('default', {'mode': 'normal'})
-call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
-
-" 移動
-call denite#custom#map('normal', 'j', '<denite:nop>', 'noremap')
-call denite#custom#map('normal', 'k', '<denite:nop>', 'noremap')
-call denite#custom#map('normal', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('normal', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('normal', '<C-u>', '<denite:move_up_path>', 'noremap')
-call denite#custom#map('insert', '<C-u>', '<denite:move_up_path>', 'noremap')
-
-"" ウィンドウを分割して開く
-call denite#custom#map('normal', '<C-j>', '<denite:do_action:split>', 'noremap')
-call denite#custom#map('insert', '<C-j>', '<denite:do_action:split>', 'noremap')
-call denite#custom#map('normal', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
-call denite#custom#map('insert', '<C-l>', '<denite:do_action:vsplit>', 'noremap')
-
-" End denite definition-------------------------

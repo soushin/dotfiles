@@ -9,3 +9,14 @@ function gcl-config() {
     return 0
 }
 zle -N gcl-config
+
+function open-gcp() {
+    local PROJECT="$1"
+    if [ -z "$PROJECT" ] ; then
+        echo -e 'should set project-id\n'
+        return 1
+    fi
+    open "https://console.cloud.google.com/home/dashboard?project=${PROJECT}&folder=&organizationId="
+    return 0
+}
+zle -N open-gcp

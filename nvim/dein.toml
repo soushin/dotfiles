@@ -20,29 +20,6 @@ hook_add = '''
     nnoremap <silent> <Space>n        :<C-u>Denite neosnippet<CR>
     nnoremap <space>d                 :<C-u>Denite file/rec:$HOME/dotfiles<CR>
 '''
-hook_source = '''
-    " Define mappings
-    " Change file/rec command.
-    call denite#custom#var('file/rec', 'command',
-                \ ['ag', '--follow', '--vimgrep', '--hidden',
-                \ '--ignore-dir', '.git', '--ignore', '\.DS_Store', '--ignore-dir', 'node_modules', '--ignore-dir', 'Alfred.alfredpreferences',
-                \ '-g', ''])
-    " Change matchers.
-    call denite#custom#source(
-                \ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
-    call denite#custom#source(
-                \ 'file/rec', 'matchers', ['matcher/cpsm'])
-    " Ag command on grep source
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'default_opts',
-                \ ['--vimgrep', '--follow', '--hidden',
-                \ '--ignore-dir', '.git', '--ignore', '\.DS_Store', '--ignore-dir', 'node_modules', '--ignore-dir', 'Alfred.alfredpreferences'
-                \ ])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-'''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -52,22 +29,6 @@ on_source = ['unite.vim', 'denite.nvim']
 repo = 'Shougo/neoyank.vim'
 on_event = 'TextYankPost'
 on_source = ['unite.vim', 'denite.nvim']
-
-[[plugins]]
-repo = 'nixprime/cpsm'
-on_source = ['denite.nvim', 'deoplete.nvim']
-build = 'env PY3=ON ./install.sh'
-
-# vim-toml
-[[plugins]]
-repo  = 'cespare/vim-toml'
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter'
-hook_add = '''
-  let g:deoplete#enable_at_startup = 1
-'''
 
 # The NERDTree
 [[plugins]]
@@ -101,65 +62,12 @@ let g:NERDTreeIgnore=['\.git$', '\.clean$', '\.swp$', '\.bak$', '\~$']
 autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree()) | q | endif
 '''
 
-# Operator replace
-[[plugins]]
-repo = 'kana/vim-operator-user'
-[[plugins]]
-repo = 'kana/vim-operator-replace'
-depends = ['vim-operator-user']
-
-# tender
-[[plugins]]
-repo = 'jacoborus/tender.vim'
-
-# ale
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-" 保存時のみ実行する
-let g:ale_lint_on_text_changed = 0
-" 表示に関する設定
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-let g:airline#extensions#ale#open_lnum_symbol = '('
-let g:airline#extensions#ale#close_lnum_symbol = ')'
-let g:ale_echo_msg_format = '[%linter%]%code: %%s'
-highlight link ALEErrorSign Tag
-highlight link ALEWarningSign StorageClass
-" Ctrl + kで次の指摘へ、Ctrl + jで前の指摘へ移動
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-'''
-
-# vim-table-mode
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
-
-# sonictemplate-vim
-[[plugins]]
-repo = 'mattn/sonictemplate-vim'
-
-# vim-cheatsheet
-[[plugins]]
-repo = 'reireias/vim-cheatsheet'
-hook_add = '''
-let g:cheatsheet#cheat_file = '~/.config/nvim/cheatsheet.md'
-'''
-
 # simeji/winresizer
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
 let g:winresizer_start_key = '<C-T>'
 '''
-
-# vim-fugitive
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
-# vim-airline
-[[plugins]]
-repo = 'vim-airline/vim-airline'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -169,5 +77,5 @@ marged = 0
 rev = 'release'
 
 [[plugins]]
-repo = 'tpope/vim-commentary'
-
+repo = 'mattn/vim-goimports'
+on_ft = ['go']
