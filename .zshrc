@@ -37,7 +37,7 @@ export PATH="$PATH:$GOPATH/bin"
 export GO111MODULE=on
 
 # kube-ps1
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+source "/opt/homebrew/Cellar/kube-ps1/0.7.0/share/kube-ps1.sh"
 PS1='$(kube_ps1) '$PS1
 
 # rbenv

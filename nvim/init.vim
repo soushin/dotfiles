@@ -8,8 +8,7 @@ endfunction
 
 "editor definition------------------------
 
-let g:python_host_prog='~/.pyenv/versions/neovim-2/bin/python'
-let g:python3_host_prog=expand('~/.pyenv/versions/neovim-3/bin/python3')
+let g:python3_host_prog=expand('~/.pyenv/versions/3.10.0/bin/python3')
 
 let mapleader = '\'
 
@@ -97,7 +96,8 @@ endif
 filetype plugin indent on
 syntax enable
 
-colorscheme tender
+" Theme
+colorscheme hybrid
   
 " If you want to install not installed plugins on startup.
 if dein#check_install()

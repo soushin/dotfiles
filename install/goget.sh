@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # install
-go get github.com/golang/mock/gomock
-go install github.com/golang/mock/mockgen
+GO111MODULE=on go install github.com/golang/mock/gomock
+GO111MODULE=on go install github.com/golang/mock/mockgen
+GO111MODULE=on go install golang.org/x/tools/gopls@latest
 
-go get -u github.com/sourcegraph/go-langserver
-go get -u github.com/saibing/bingo
+GO111MODULE=on go install -u github.com/saibing/bingo

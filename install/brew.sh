@@ -9,41 +9,35 @@ fi
 brew install bash
 brew install zsh
 brew install git
+brew install gh
 brew install wget
 brew install direnv
 brew install tree
 brew install mercurial
 brew install jq
 brew install gcc
+brew install tmux
+brew install reattach-to-user-namespace
 
 brew install ghq
 brew install peco
 
-brew install maven
-brew install gradle
-brew install heroku
-brew install tfenv
-
 brew install redis
-brew install protobuf
 
 brew install go
 brew install node
 brew install goenv
-brew install gradle
+brew install rbenv
 
 brew install kubernetes-cli
 brew install kubernetes-helm
+brew install kube-ps1
 brew install stern
-brew install mysql --client-only
+brew install mysql-client
+brew install libpq
 
 brew install neovim
 brew install the_silver_searcher
 
 brew install pyenv
 brew install python3
-
-brew install neovim
-brew install goenv
-
-brew install kube-ps1
