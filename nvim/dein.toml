@@ -80,8 +80,23 @@ rev = 'release'
 repo = 'mattn/vim-goimports'
 on_ft = ['go']
 
+# statusline
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:lightline = {'colorscheme': 'wombat','active': {'left': [ [ 'mode', 'paste' ],[ 'gitbranch', 'readonly', 'filename', 'modified' ] ]},'component_function': {'gitbranch': 'gitbranch#name'}}
+    set laststatus=2
+    set noshowmode
+'''
+[[plugins]]
+repo = 'itchyny/vim-gitbranch'
 
+# comment out
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
+
+# git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
