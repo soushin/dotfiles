@@ -1,5 +1,5 @@
 
-alias vim='/opt/homebrew/bin/nvim'
+alias vim='nvim'
 
 # ls
 alias la="ls -lha"

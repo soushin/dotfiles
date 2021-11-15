@@ -36,9 +36,6 @@ eval "$(goenv init -)"
 export PATH="$PATH:$GOPATH/bin"
 export GO111MODULE=on
 
-# kube-ps1
-source "/opt/homebrew/Cellar/kube-ps1/0.7.0/share/kube-ps1.sh"
-PS1='$(kube_ps1) '$PS1
-
 # rbenv
 eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
