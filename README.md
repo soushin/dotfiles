@@ -1,8 +1,13 @@
 # dotfiles
 
+## requirements
+
+- brew
+- go
+
+
 ## install
 
 ```
-make setup
 make install
 ```
