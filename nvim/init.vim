@@ -119,3 +119,6 @@ function! s:denite_my_settings() abort
     nnoremap <silent><buffer><expr> <Space>
                 \ denite#do_map('toggle_select').'j'
 endfunction
+
+" Filer
+nnoremap <C-e> :<c-u>Fern . -drawer -keep -toggle -reveal=%<CR>
