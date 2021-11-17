@@ -39,6 +39,7 @@ brew install libpq
 brew install neovim
 brew install the_silver_searcher
 brew install ripgrep
+brew tap homebrew/cask-fonts
 
 brew install pyenv
 brew install python3

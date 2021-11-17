@@ -1,33 +1,19 @@
 # Cheet Sheet
 
-## language-client
+## denite
 
-- <silent>gd :definition)
-- <silent>gy :type-definition)
-- <silent>gi :implementation)
-- <silent>gr :references)
+- <Space><Space> : ファイル検索
+- <Space>P : ワークスペース配下をファイル検索
+- <Space>b : 現在のバッファトディレクトリ配下をファイル検索
+- <Space>r : キーワード検索
+- <Space>y : yank履歴を参照
+- <Space>d : dotfilesのディレクトリ配下を参照
 
-note: if you get error like `Language server is not running for:`, you should do `:LanguageClientStart`
+## coc
 
-## vim-go
-
-- <Leader>b         : GoBuild = `go build`
-- <Leader>r         : GoRun = `go run`
-- <Leader>t         : GoTest = `go test`
-- <Leader>tf        : GoTestFunc = `go test -run ...`
-- <Leader>c         : GoCoverageToggle
-- :GoImport ${name} : importに追加、tab補完可能
-- :GoDrop ${name}   : importから削除、tab補完可能
-- :GoImports        : 不足しているパッケージをimportに追加する
-- dif               : 関数の中身をdelete
-- vif               : 関数の中身を選択
-- yif               : 関数の中身をyank
-- daf               : 関数の全体をdelete
-- vaf               : 関数の全体を選択
-- yaf               : 関数の全体をyank
-- :GoAlternate      : foo.go と foo_test.goを行き来する
-- :GoDef            : 定義へ移動
-- :GoDoc            : ドキュメントを開く
-- :GoDocBrowser     : ドキュメントをブラウザで開く
-- <Leader>i         : GoInfo = カーソル下の情報を表示
-- :GoRename         : カーソル下の要素をリネーム
+- <Space>o : 構造体と関数のアウトラインを表示
+- <Space>s : キーワードからワークスペース配下の関数や構造体などのシンボルを検索
+- <silent> gd : 定義へジャンプ
+- <silent> gy : 定義へジャンプ（関数の場合は返り値の定義にジャンプ）
+- <silent> gi : 実装へジャンプ
+- <silent> gr : 参照へジャンプ
