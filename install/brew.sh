@@ -10,6 +10,7 @@ brew install bash
 brew install zsh
 brew install git
 brew install gh
+brew install tig
 brew install wget
 brew install direnv
 brew install tree
