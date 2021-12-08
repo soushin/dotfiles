@@ -31,7 +31,9 @@ on_event = 'TextYankPost'
 on_source = ['unite.vim', 'denite.nvim']
 
 # filer
-# iterm2の設定を変更する／Font -> Hack Nerd Font, Non-ASCII Font -> Hak Nerd Font
+# Menuペインが文字化けしているので以下を対応すること
+# 1. `brew install --cask font-hack-nerd-font`を実行してFontをインストールする
+# 2. iterm2の設定を変更する／Font -> Hack Nerd Font, Non-ASCII Font -> Hak Nerd Font
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
