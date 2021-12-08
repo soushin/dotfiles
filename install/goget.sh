@@ -6,3 +6,4 @@ GO111MODULE=on go install github.com/golang/mock/mockgen
 GO111MODULE=on go install golang.org/x/tools/gopls@latest
 
 GO111MODULE=on go install -u github.com/saibing/bingo
+GO111MODULE=on go install golang.org/x/tools/cmd/goimports@latest

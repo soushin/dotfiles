@@ -34,6 +34,9 @@ on_source = ['unite.vim', 'denite.nvim']
 # iterm2の設定を変更する／Font -> Hack Nerd Font, Non-ASCII Font -> Hak Nerd Font
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
+hook_add = '''
+  let g:fern#default_hidden=1
+'''
 
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
@@ -109,3 +112,9 @@ repo = 'tomtom/tcomment_vim'
 repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+# text
+[[plugins]]
+repo = 'tpope/vim-surround'
+[[plugins]]
+repo = 'Raimondi/delimitMate'

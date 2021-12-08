@@ -17,3 +17,8 @@
 - <silent> gy : 定義へジャンプ（関数の場合は返り値の定義にジャンプ）
 - <silent> gi : 実装へジャンプ
 - <silent> gr : 参照へジャンプ
+
+## surround
+
+- `cs"'` :  `"Hello world!"` to change it to `'Hello world!'`
+- `ds"`  :  `"Hello world!"` to remove the delimiterys entiryely `Hello world!`
