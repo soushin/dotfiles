@@ -11,7 +11,7 @@ plugins=(git dotenv)
 source $ZSH/oh-my-zsh.sh
 
 # dotenv
-export ZSH_DOTENV_FILE=.env.example
+export ZSH_DOTENV_FILE=.env
 
 # extension
 export GEM_HOME=$HOME/.gem
