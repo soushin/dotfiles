@@ -66,8 +66,14 @@ vnoremap <C-n> 20j
 nnoremap <C-p> 20k
 vnoremap <C-p> 20k
 
-"inoremap <silent> jj <ESC>:<C-u>w<CR>
-
+inoremap <silent><buffer> <C-j> <Esc>
+  \:call denite#move_to_parent()<CR>
+  \:call cursor(line('.')+1,0)<CR>
+  \:call denite#move_to_filter()<CR>A
+inoremap <silent><buffer> <C-k> <Esc>
+  \:call denite#move_to_parent()<CR>
+  \:call cursor(line('.')-1,0)<CR>
+  \:call denite#move_to_filter()<CR>A
 "End editor definition------------------------
 
 "dein definition-----------------------------
