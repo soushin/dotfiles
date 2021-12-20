@@ -80,9 +80,12 @@ hook_add = 'source ~/.config/nvim/coc-setting.vim'
 marged = 0
 rev = 'release'
 
+# go
 [[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = ['go']
+[[plugins]]
+repo = 'buoto/gotests-vim'
 
 # statusline
 [[plugins]]
@@ -120,3 +123,4 @@ repo = 'airblade/vim-gitgutter'
 repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'Raimondi/delimitMate'
+
