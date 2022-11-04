@@ -28,14 +28,16 @@ source ~/.zsh.gcloud
 unalias history
 
 # goenv
-export GOPATH=$HOME/go
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
-export GOENV_DISABLE_GOPATH=1
 eval "$(goenv init -)"
+export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
-export GO111MODULE=on
 
 # rbenv
 eval "$(rbenv init -)"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# libpq
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
