@@ -1,26 +1,3 @@
-# denite.nvim
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-depends = 'cpsm'
-on_cmd = 'Denite'
-hook_add = '''
-    nnoremap <silent> <Space>ft       :<C-u>Denite -start-filter filetype<CR>
-    nnoremap <silent> <Space><Space>  :<C-u>Denite -start-filter file/rec<CR>
-    nnoremap <silent> <Space>P        :<C-u>DeniteProjectDir -start-filter file/rec<CR>
-    nnoremap <silent> <Space>b        :<C-u>DeniteBufferDir -start-filter file/rec<CR>
-    nnoremap <silent> <Space>i<Space> :<C-u>Denite -start-filter file/rec:
-    nnoremap <silent> <Space>/        :<C-u>Denite -start-filter line<CR>
-    nnoremap <silent> <Space>r        :<C-u>Denite grep<CR>
-    nnoremap <silent> <Space>ir       :<C-u>Denite grep:
-    nnoremap <silent> <Space>:        :<C-u>Denite command<CR>
-    nnoremap <silent> <Space>;        :<C-u>Denite command_history<CR>
-    nnoremap <silent> <Space>f        :<C-u>Denite -start-filter file_mru<CR>
-    nnoremap <silent> <Space>y        :<C-u>Denite neoyank<CR>
-    nnoremap <silent> <Space>p        :<C-u>Denite -start-filter ghq<CR>
-    nnoremap <silent> <Space>n        :<C-u>Denite neosnippet<CR>
-    nnoremap <space>d                 :<C-u>Denite file/rec:$HOME/dotfiles<CR>
-'''
-
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_source = ['unite.vim', 'denite.nvim']
@@ -29,6 +6,9 @@ on_source = ['unite.vim', 'denite.nvim']
 repo = 'Shougo/neoyank.vim'
 on_event = 'TextYankPost'
 on_source = ['unite.vim', 'denite.nvim']
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
 
 # filer
 # Menuペインが文字化けしているので以下を対応すること
@@ -59,14 +39,6 @@ hook_add = '''
   augroup END
 '''
 
-# cheetsheeet
-[[plugins]]
-repo = 'reireias/vim-cheatsheet'
-hook_add = '''
-let g:cheatsheet#cheat_file = '~/dotfiles/nvim/cheatsheet.md'
-'''
-
-# simeji/winresizer
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
@@ -123,4 +95,3 @@ repo = 'airblade/vim-gitgutter'
 repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'Raimondi/delimitMate'
-

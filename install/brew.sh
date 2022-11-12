@@ -38,6 +38,7 @@ brew install mysql-client
 brew install libpq
 
 brew install neovim
+brew install deno
 brew install the_silver_searcher
 brew install ripgrep
 brew tap homebrew/cask-fonts
