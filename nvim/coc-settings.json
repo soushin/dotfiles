@@ -9,5 +9,8 @@
       }
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": ["go"]
+  "coc.preferences.formatOnSaveFiletypes": ["go"],
+  "go.goplsEnv": {
+    "GOFLAGS": "-tags=e2e"
+  }
 }

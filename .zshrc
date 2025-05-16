@@ -27,12 +27,11 @@ source ~/.zsh.gcloud
 # unalias list
 unalias history
 
-# goenv
-export GOENV_ROOT="$HOME/.goenv"
-export PATH="$GOENV_ROOT/bin:$PATH"
-eval "$(goenv init -)"
-export PATH="$GOROOT/bin:$PATH"
-export PATH="$PATH:$GOPATH/bin"
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+export GOROOT=$(go1.22.2 env GOROOT)
+export PATH=$PATH:$GOROOT/bin
 
 # rbenv
 eval "$(rbenv init -)"
@@ -41,3 +40,11 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # libpq
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
+# flutter
+export PATH="$PATH:$HOME/development/flutter/bin"
+
+# mysql
+export PATH="$PATH:/opt/homebrew/opt/mysql-client/bin"
+
+# nodenv
+export PATH="$HOME/.nodenv/shims:$PATH"
