@@ -3,6 +3,7 @@
 ## requirements
 
 - brew
+- git
 - go
 
 
