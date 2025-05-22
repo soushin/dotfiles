@@ -7,6 +7,9 @@ if [[ ! -d ~/.config/nvim ]]; then
     brew install font-hack-nerd-font
     brew install font-daddy-time-mono-nerd-font
 
+    # live grep file search
+    brew install ripgrep
+
     # astronvim
     git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim 
     rm -rf ~/.config/nvim/.git
