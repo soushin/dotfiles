@@ -3,11 +3,6 @@
 if [[ ! -d ~/.config/nvim ]]; then
     brew install neovim 
 
-    # fonts
-    brew install font-hack-nerd-font
-    brew install font-daddy-time-mono-nerd-font
-
-    # live grep file search
     brew install ripgrep
 
     # astronvim

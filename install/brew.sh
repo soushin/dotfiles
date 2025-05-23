@@ -22,8 +22,25 @@ brew install reattach-to-user-namespace
 brew install ghq
 brew install peco
 
-# gcp
+# prompt
+brew install starship
+brew install font-hack-nerd-font
+brew install font-daddy-time-mono-nerd-font
+
+# secrets
+brew install gpg
+brew install git-secret
+
+# gcloud
 brew install --cask google-cloud-sdk
+
+# devops
 brew install skaffold
 
-brew install npm
+# node
+brew install nodeenv
+brew install yarn
+
+# terraform
+brew install tfenv
+
