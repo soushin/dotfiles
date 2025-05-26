@@ -18,6 +18,7 @@ brew install yq
 brew install gcc
 brew install tmux
 brew install reattach-to-user-namespace
+brew install watch
 
 brew install ghq
 brew install peco
